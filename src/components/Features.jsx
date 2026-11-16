@@ -1,26 +1,24 @@
 import React from 'react';
 
 const features = [
-  { title: "AI Automation", desc: "Automate repetitive tasks with our proprietary machine learning algorithms.", icon: "🤖" },
-  { title: "Real-time Analytics", desc: "Get instant insights with our high-performance data processing engine.", icon: "📊" },
-  { title: "Enterprise Security", desc: "Bank-grade encryption and compliance standards built into the core.", icon: "🛡️" },
-  { title: "Global Scale", desc: "Deploy across regions with zero latency and 99.99% uptime guarantee.", icon: "🌍" },
+  { title: "Real-time Analytics", desc: "Get instant insights into your user behavior with powerful dashboards." },
+  { title: "Automated Workflows", desc: "Save hours every week by automating repetitive manual tasks." },
+  { title: "Security First", desc: "Enterprise-grade security to keep your company and user data safe." }
 ];
 
 const Features = () => {
   return (
-    <section id="features" className="py-24 bg-white">
+    <section id="features" className="py-24 bg-gray-50/50">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Powerful Features</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">Everything you need to manage your business at scale, in one unified platform.</p>
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 text-slate-900 italic">Built for the next generation.</h2>
+        <div className="grid md:grid-cols-3 gap-12">
           {features.map((f, i) => (
-            <div key={i} className="p-8 border border-gray-100 rounded-2xl hover:shadow-xl transition duration-300 hover:-translate-y-2 bg-slate-50">
-              <div className="text-4xl mb-4">{f.icon}</div>
-              <h3 className="text-xl font-bold mb-2">{f.title}</h3>
-              <p className="text-gray-600">{f.desc}</p>
+            <div key={i} className="bg-white p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-shadow group">
+              <div className="w-12 h-12 bg-orange-accent/10 flex items-center justify-center rounded-xl mb-6 text-orange-accent group-hover:bg-orange-accent group-hover:text-white transition-colors font-bold text-xl">
+                0{i+1}
+              </div>
+              <h3 className="text-xl font-bold mb-3 text-black">{f.title}</h3>
+              <p className="text-slate-600 leading-relaxed">{f.desc}</p>
             </div>
           ))}
         </div>

@@ -2,25 +2,24 @@ import React from 'react';
 
 const Hero = () => {
   return (
-    <section id="home" className="relative h-screen flex items-center justify-center gradient-bg text-white overflow-hidden">
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full mix-blend-overlay filter blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-400 rounded-full mix-blend-overlay filter blur-3xl animate-pulse delay-700"></div>
-      </div>
-      
-      <div className="container mx-auto px-6 text-center relative z-10">
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-          Next-Gen SaaS for <br/><span className="text-blue-300">Modern Enterprises</span>
+    <section className="pt-40 pb-20 px-6 bg-white">
+      <div className="container mx-auto text-center">
+        <div className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wide text-orange-accent uppercase bg-orange-50 rounded-full">
+          New: AI-Powered Analytics
+        </div>
+        <h1 className="text-5xl md:text-7xl font-extrabold mb-8 tracking-tight text-slate-900">
+          Scale your SaaS <br />
+          <span className="text-orange-accent">Faster than ever.</span>
         </h1>
-        <p className="text-xl md:text-2xl mb-10 text-blue-100 max-w-2xl mx-auto">
-          Scale your operations, automate workflows, and unlock deep insights with BigAgency's intelligent platform.
+        <p className="text-slate-600 text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+          The ultimate engine for modern software companies. Automate your operations, analyze your data, and dominate your niche.
         </p>
-        <div className="flex flex-col md:flex-row justify-center gap-4">
-          <button className="bg-white text-blue-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-50 transition transform hover:-translate-y-1 shadow-lg">
+        <div className="flex flex-wrap justify-center gap-4">
+          <button className="bg-orange-accent text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-orange-600 transition shadow-lg shadow-orange-500/20">
             Start Free Trial
           </button>
-          <button className="border-2 border-white/30 backdrop-blur-sm text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition transform hover:-translate-y-1">
-            Watch Demo
+          <button className="bg-white text-black border border-slate-200 px-8 py-4 rounded-xl font-bold text-lg hover:border-black transition">
+            Book a Demo
           </button>
         </div>
       </div>
