@@ -1,37 +1,59 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const Features = () => {
-  const features = [
-    { title: "Real-time Analytics", desc: "Instantly visualize your growth metrics with our AI-driven dashboard.", icon: "📊" },
-    { title: "Automated Growth", desc: "Scale operations seamlessly with our intelligent automation engine.", icon: "🚀" },
-    { title: "Secure Infrastructure", desc: "Enterprise-grade protection for your most valuable user data.", icon: "🛡️" }
-  ];
+const features = [
+  {
+    title: "AI-Driven Cloud Optimization",
+    desc: "Reduce server overhead by up to 60% with intelligent load balancing and auto-scaling node architecture.",
+    icon: "⚡"
+  },
+  {
+    title: "Custom SaaS Frontend & Design",
+    desc: "Bespoke, high-converting interfaces built with Next.js, React, and micro-animations that turn users into brand advocates.",
+    icon: "🎨"
+  },
+  {
+    title: "Enterprise Security & Compliance",
+    desc: "SOC2 Type II, ISO27001, and GDPR compliance out-of-the-box with automated penetration auditing.",
+    icon: "🔒"
+  },
+  {
+    title: "Algorithmic Growth Engine",
+    desc: "Integrated product analytics telemetry connected directly to retention and expansion funnels.",
+    icon: "📈"
+  }
+];
 
+const Features = () => {
   return (
-    <section id="features" className="py-24 bg-slate-50">
-      <div className="container mx-auto px-6">
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold text-center mb-16 text-slate-900"
-        >
-          Engineered for <span className="text-orange-500">Scaling</span>.
-        </motion.h2>
-        <div className="grid md:grid-cols-3 gap-8">
+    <section id="features" className="py-28 px-6 bg-slate-50">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <span className="text-orange-500 font-bold uppercase tracking-wider text-xs mb-3 block">CORE CAPABILITIES</span>
+          <h2 className="text-4xl sm:text-6xl font-extrabold text-slate-950 tracking-tight mb-6">
+            BUILT FOR ENTERPRISE <span className="text-orange-500">VELOCITY</span>.
+          </h2>
+          <p className="text-slate-600 text-lg">
+            Everything your SaaS infrastructure needs to scale smoothly without refactoring every 6 months.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8">
           {features.map((f, i) => (
-            <motion.div 
+            <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.2, duration: 0.5 }}
-              whileHover={{ y: -10 }}
-              className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-2xl hover:shadow-orange-100 transition-all"
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              whileHover={{ y: -6 }}
+              className="bg-white p-10 rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-xl hover:border-orange-500/40 transition-all"
             >
-              <div className="text-4xl mb-6">{f.icon}</div>
-              <h3 className="text-xl font-bold mb-3">{f.title}</h3>
-              <p className="text-slate-600 leading-relaxed">{f.desc}</p>
+              <div className="w-14 h-14 rounded-2xl bg-orange-500/10 flex items-center justify-center text-3xl mb-6 text-orange-500">
+                {f.icon}
+              </div>
+              <h3 className="text-2xl font-bold text-slate-950 mb-3">{f.title}</h3>
+              <p className="text-slate-600 leading-relaxed text-base">{f.desc}</p>
             </motion.div>
           ))}
         </div>
