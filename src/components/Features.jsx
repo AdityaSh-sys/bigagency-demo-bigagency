@@ -1,25 +1,38 @@
 import React from 'react';
-
-const features = [
-  { title: "Real-time Analytics", desc: "Get instant insights into your user behavior with powerful dashboards." },
-  { title: "Automated Workflows", desc: "Save hours every week by automating repetitive manual tasks." },
-  { title: "Security First", desc: "Enterprise-grade security to keep your company and user data safe." }
-];
+import { motion } from 'framer-motion';
 
 const Features = () => {
+  const features = [
+    { title: "Real-time Analytics", desc: "Instantly visualize your growth metrics with our AI-driven dashboard.", icon: "📊" },
+    { title: "Automated Growth", desc: "Scale operations seamlessly with our intelligent automation engine.", icon: "🚀" },
+    { title: "Secure Infrastructure", desc: "Enterprise-grade protection for your most valuable user data.", icon: "🛡️" }
+  ];
+
   return (
-    <section id="features" className="py-24 bg-gray-50/50">
+    <section id="features" className="py-24 bg-slate-50">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 text-slate-900 italic">Built for the next generation.</h2>
-        <div className="grid md:grid-cols-3 gap-12">
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl md:text-5xl font-bold text-center mb-16 text-slate-900"
+        >
+          Engineered for <span className="text-orange-500">Scaling</span>.
+        </motion.h2>
+        <div className="grid md:grid-cols-3 gap-8">
           {features.map((f, i) => (
-            <div key={i} className="bg-white p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-shadow group">
-              <div className="w-12 h-12 bg-orange-accent/10 flex items-center justify-center rounded-xl mb-6 text-orange-accent group-hover:bg-orange-accent group-hover:text-white transition-colors font-bold text-xl">
-                0{i+1}
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-black">{f.title}</h3>
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.2, duration: 0.5 }}
+              whileHover={{ y: -10 }}
+              className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-2xl hover:shadow-orange-100 transition-all"
+            >
+              <div className="text-4xl mb-6">{f.icon}</div>
+              <h3 className="text-xl font-bold mb-3">{f.title}</h3>
               <p className="text-slate-600 leading-relaxed">{f.desc}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
