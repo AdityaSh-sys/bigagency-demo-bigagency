@@ -1,23 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BigAgency | Enterprise AI & SaaS Scaling Platform</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BigAgency | Strategic Brand Engineering</title>
     <style>
-      body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #ffffff; color: #09090b; }
-      html { scroll-behavior: smooth; }
-      .bg-orange-brand { background-color: #ff5500; }
-      .text-orange-brand { color: #ff5500; }
-      .border-orange-brand { border-color: #ff5500; }
-      .shadow-orange-glow { shadow-color: rgba(255, 85, 0, 0.25); }
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #d4a373;
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --font-main: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-main); background: var(--bg-color); color: var(--text-color); line-height: 1.6; }
+        
+        header { padding: 40px 80px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 700; font-size: 1.5rem; letter-spacing: -1px; }
+        nav a { margin-left: 30px; text-decoration: none; color: var(--text-color); font-size: 0.9rem; }
+
+        main { padding: 80px; max-width: 1200px; margin: 0 auto; }
+        .hero { margin-bottom: 120px; }
+        .hero h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 20px; font-weight: 500; }
+        .hero p { font-size: 1.25rem; color: #666; max-width: 600px; }
+
+        .section-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+        h2 { font-size: 2rem; margin-bottom: 20px; font-weight: 500; }
+        
+        footer { padding: 80px; border-top: 1px solid #eee; margin-top: 80px; text-align: center; font-size: 0.8rem; color: #999; }
+        
+        button { background: var(--primary-color); color: white; padding: 12px 24px; border: none; cursor: pointer; font-size: 0.9rem; }
+        
+        @media (max-width: 768px) {
+            header, main, footer { padding: 30px; }
+            .hero h1 { font-size: 2.5rem; }
+            .section-grid { grid-template-columns: 1fr; gap: 40px; }
+        }
     </style>
-  </head>
-  <body class="overflow-x-hidden selection:bg-orange-500 selection:text-white">
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+</head>
+<body>
+    <header>
+        <div class="logo">BIGAGENCY</div>
+        <nav>
+            <a href="#">Work</a>
+            <a href="#">Approach</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>We build systems that shape perception and drive growth.</h1>
+            <p>Independent creative consultancy for ambitious companies. Based in New York.</p>
+        </section>
+
+        <section class="section-grid">
+            <div>
+                <h2>Services</h2>
+                <p>Brand Strategy, Visual Identity, Digital Product Design, Campaign Development.</p>
+            </div>
+            <div>
+                <h2>Selected Work</h2>
+                <p>See how we partner with global teams to solve complex business challenges.</p>
+                <button style="margin-top:20px;">Explore Projects</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2026 BigAgency. All rights reserved.
+    </footer>
+</body>
 </html>
