@@ -3,94 +3,302 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BigAgency | Strategic Design</title>
-    <!-- Importing GSAP for smooth, professional motion without external frameworks -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <title>BIGAGENCY — Strategic Design & Engineering Studio</title>
+    
+    <!-- Google Fonts for Editorial Aesthetic: Fraunces (Display Serif) + DM Sans (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&display=swap" rel="stylesheet">
+
     <style>
+        /* 
+          AESTHETIC DIRECTION: EDITORIAL / MAGAZINE
+          Base: Warm paper/cream (#f6f4ee)
+          Ink: Heavy carbon (#141312)
+          Accent: Deep rust (#8c3a27)
+          Borders: Fine structural rules (no floating cards or pills)
+        */
         :root {
-            --bg: #ffffff;
-            --text: #111111;
-            --muted: #666666;
-            --accent: #b8860b;
+            --bg-paper: #f6f4ee;
+            --text-ink: #141312;
+            --text-muted: #5e5c56;
+            --accent-rust: #8c3a27;
+            --border-rule: #d8d4c9;
+            --font-display: 'Fraunces', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; overflow-x: hidden; }
         
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+        html { font-size: 16px; background-color: var(--bg-paper); color: var(--text-ink); }
+        body { font-family: var(--font-body); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+        /* Structural Container */
+        .page-wrap { max-width: 1320px; margin: 0 auto; padding: 0 48px; }
+
+        /* Typography System */
+        h1, h2, h3, .serif-text { font-family: var(--font-display); font-weight: 400; line-height: 1.05; letter-spacing: -0.02em; }
         
-        header { padding: 40px 0; display: flex; justify-content: space-between; align-items: center; }
-        .nav-links a { margin-left: 30px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.9rem; }
+        /* Header / Editorial Nav */
+        header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: baseline; 
+            padding: 40px 0 24px; 
+            border-bottom: 2px solid var(--text-ink);
+        }
+        .brand-logo { font-family: var(--font-display); font-size: 1.8rem; font-weight: 600; font-style: italic; letter-spacing: -0.03em; color: var(--text-ink); text-decoration: none; }
+        .nav-meta { display: flex; gap: 40px; font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; }
+        .nav-meta a { color: var(--text-ink); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; }
+        .nav-meta a:hover { border-color: var(--text-ink); }
 
-        .hero { min-height: 80vh; display: flex; flex-direction: column; justify-content: center; }
-        .hero h1 { font-size: 5rem; font-weight: 500; letter-spacing: -0.02em; line-height: 0.9; margin-bottom: 30px; opacity: 0; }
-        .hero p { font-size: 1.5rem; color: var(--muted); max-width: 600px; opacity: 0; }
+        /* Hero Section */
+        .hero { 
+            padding: 96px 0 80px; 
+            display: grid; 
+            grid-template-columns: 12fr 7fr; 
+            gap: 60px; 
+            align-items: end;
+            border-bottom: 1px solid var(--border-rule);
+        }
+        .hero-title { font-size: clamp(3rem, 6vw, 5.5rem); color: var(--text-ink); }
+        .hero-title em { font-style: italic; color: var(--accent-rust); }
+        .hero-statement { font-size: 1.25rem; color: var(--text-muted); line-height: 1.5; font-weight: 400; }
+        .issue-tag { font-family: var(--font-body); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent-rust); margin-bottom: 24px; display: block; font-weight: 600; }
 
-        .section-work { padding: 120px 0; }
-        .work-item { padding: 60px 0; border-top: 1px solid #e0e0e0; cursor: pointer; transition: padding 0.3s ease; }
-        .work-item:hover { padding-left: 20px; }
-        .work-item h3 { font-size: 2.5rem; font-weight: 500; }
+        /* Editorial Content Grid — NO CARDS */
+        .editorial-section { padding: 96px 0; border-bottom: 1px solid var(--border-rule); }
+        .section-header { display: grid; grid-template-columns: 3fr 9fr; gap: 40px; margin-bottom: 64px; }
+        .section-num { font-family: var(--font-display); font-size: 1.2rem; font-style: italic; color: var(--accent-rust); }
+        .section-title { font-size: 2.2rem; }
 
-        footer { padding: 80px 0; text-align: center; color: var(--muted); font-size: 0.9rem; }
+        /* Asymmetric Essay-style layout */
+        .content-columns { display: grid; grid-template-columns: 4fr 5fr 3fr; gap: 48px; }
+        .col-lead { font-size: 1.15rem; color: var(--text-ink); font-weight: 500; }
+        .col-body { font-size: 1rem; color: var(--text-muted); }
+        .col-meta { font-size: 0.9rem; border-left: 1px solid var(--border-rule); padding-left: 24px; }
+        .col-meta ul { list-style: none; }
+        .col-meta li { margin-bottom: 16px; }
+        .col-meta strong { display: block; color: var(--text-ink); font-weight: 600; }
+
+        /* Case Studies Index (Text-First Table Layout) */
+        .archive-list { width: 100%; border-collapse: collapse; margin-top: 32px; }
+        .archive-row { border-top: 1px solid var(--border-rule); transition: background-color 0.2s ease; cursor: pointer; }
+        .archive-row:hover { background-color: #efece4; }
+        .archive-cell { padding: 32px 16px 32px 0; vertical-align: top; }
+        .archive-num { font-family: var(--font-display); font-style: italic; color: var(--accent-rust); font-size: 1.1rem; width: 60px; }
+        .archive-title { font-family: var(--font-display); font-size: 1.8rem; color: var(--text-ink); font-weight: 400; }
+        .archive-desc { color: var(--text-muted); font-size: 0.95rem; max-width: 480px; }
+        .archive-year { text-align: right; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; color: var(--text-muted); }
+
+        /* Interactive Inquiry Form */
+        .inquiry-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 80px; }
+        .field-group { margin-bottom: 40px; position: relative; }
+        .field-label { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 8px; font-weight: 600; }
+        .field-input { width: 100%; background: transparent; border: none; border-bottom: 1.5px solid var(--text-ink); padding: 12px 0; font-family: var(--font-body); font-size: 1.1rem; color: var(--text-ink); outline: none; border-radius: 0; }
+        .field-input:focus { border-color: var(--accent-rust); }
         
+        .btn-submit { 
+            background: var(--text-ink); 
+            color: var(--bg-paper); 
+            border: none; 
+            padding: 20px 40px; 
+            font-family: var(--font-body); 
+            font-size: 0.9rem; 
+            text-transform: uppercase; 
+            letter-spacing: 0.1em; 
+            font-weight: 600; 
+            cursor: pointer; 
+            border-radius: 0; 
+            transition: background-color 0.2s ease;
+            display: inline-block;
+        }
+        .btn-submit:hover { background: var(--accent-rust); }
+
+        /* Editorial Footer */
+        footer { padding: 64px 0 96px; display: flex; justify-content: space-between; align-items: flex-end; font-size: 0.85rem; color: var(--text-muted); }
+        .footer-brand { font-family: var(--font-display); font-size: 1.5rem; font-style: italic; color: var(--text-ink); margin-bottom: 12px; }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .hero { grid-template-columns: 1fr; gap: 40px; }
+            .content-columns { grid-template-columns: 1fr 1fr; }
+            .col-meta { grid-column: span 2; border-left: none; padding-left: 0; border-top: 1px solid var(--border-rule); padding-top: 24px; }
+            .inquiry-grid { grid-template-columns: 1fr; gap: 40px; }
+        }
         @media (max-width: 768px) {
-            .hero h1 { font-size: 3rem; }
-            .container { padding: 0 20px; }
+            .page-wrap { padding: 0 24px; }
+            header { flex-direction: column; gap: 16px; }
+            .section-header { grid-template-columns: 1fr; gap: 12px; }
+            .content-columns { grid-template-columns: 1fr; }
+            .col-meta { grid-column: span 1; }
+            .archive-cell { display: block; padding: 12px 0; }
+            .archive-year { text-align: left; }
         }
     </style>
 </head>
 <body>
 
-    <header class="container">
-        <div style="font-weight: 800;">BIGAGENCY</div>
-        <nav class="nav-links">
-            <a href="#">Work</a>
-            <a href="#">Process</a>
-            <a href="#">Contact</a>
-        </nav>
-    </header>
+    <div class="page-wrap">
+        
+        <!-- Header -->
+        <header>
+            <a href="#" class="brand-logo">BigAgency.</a>
+            <nav class="nav-meta">
+                <a href="#manifesto">Manifesto</a>
+                <a href="#index">Archive</a>
+                <a href="#inquiry">Inquire</a>
+            </nav>
+        </header>
 
-    <main class="container">
+        <!-- Hero -->
         <section class="hero">
-            <h1 id="hero-title">Precision in every pixel.</h1>
-            <p id="hero-sub">We build robust digital infrastructure for brands that define the future.</p>
-        </section>
-
-        <section class="section-work">
-            <div class="work-item">
-                <h3>System Architecture</h3>
-                <p>Enterprise-grade design systems that scale.</p>
+            <div>
+                <span class="issue-tag">Vol. 04 — Editorial Consultancy</span>
+                <h1 class="hero-title">We craft <em>enduring</em> digital identity & editorial systems.</h1>
             </div>
-            <div class="work-item">
-                <h3>Digital Product</h3>
-                <p>Interfaces built for clarity and high conversion.</p>
+            <div>
+                <p class="hero-statement">
+                    BigAgency is an independent studio operating at the intersection of typography, technical discipline, and strategic design. We reject disposable visual trends in favor of lasting brand authority.
+                </p>
             </div>
         </section>
-    </main>
 
-    <footer>
-        &copy; 2026 BigAgency. All Rights Reserved.
-    </footer>
+        <!-- Manifesto / Approach Section -->
+        <section id="manifesto" class="editorial-section">
+            <div class="section-header">
+                <span class="section-num">01/</span>
+                <h2 class="section-title">The Anti-Trend Thesis</h2>
+            </div>
+            <div class="content-columns">
+                <div class="col-lead">
+                    Modern digital design has succumbed to a monoculture of template cards, rounded buttons, and predictable SaaS gradients.
+                </div>
+                <div class="col-body">
+                    <p style="margin-bottom: 20px;">
+                        We believe true distinction comes from editorial rigor, structural clarity, and sharp typographical hierarchy. A brand’s website should feel like a custom publication—intentionally art-directed, meticulously composed, and built to withstand the test of algorithm cycles.
+                    </p>
+                    <p>
+                        Our practice avoids visual clutter. We rely on bespoke type scale, deliberate whitespace, and meaningful technical performance to establish authority for institutions and market leaders.
+                    </p>
+                </div>
+                <div class="col-meta">
+                    <ul>
+                        <li>
+                            <strong>Core Competency</strong>
+                            Visual Identity, Design Systems
+                        </li>
+                        <li>
+                            <strong>Engineering</strong>
+                            Semantics, Performance, Scale
+                        </li>
+                        <li>
+                            <strong>Location</strong>
+                            New York / Zurich / Remote
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Selected Works Archive -->
+        <section id="index" class="editorial-section">
+            <div class="section-header">
+                <span class="section-num">02/</span>
+                <h2 class="section-title">Selected Commissions</h2>
+            </div>
+
+            <table class="archive-list">
+                <tbody>
+                    <tr class="archive-row">
+                        <td class="archive-cell archive-num">A01</td>
+                        <td class="archive-cell archive-title">Stahl & Co.</td>
+                        <td class="archive-cell archive-desc">Complete visual identity system and archival publishing platform for Swiss architectural heritage foundation.</td>
+                        <td class="archive-cell archive-year">2025</td>
+                    </tr>
+                    <tr class="archive-row">
+                        <td class="archive-cell archive-num">A02</td>
+                        <td class="archive-cell archive-title">Monolith Systems</td>
+                        <td class="archive-cell archive-desc">Technical design framework and monospaced interface architecture for high-frequency data infrastructure.</td>
+                        <td class="archive-cell archive-year">2025</td>
+                    </tr>
+                    <tr class="archive-row">
+                        <td class="archive-cell archive-num">A03</td>
+                        <td class="archive-cell archive-title">Neue Press Edition</td>
+                        <td class="archive-cell archive-desc">Digital e-commerce publication and custom typography pairing for independent art monograph publisher.</td>
+                        <td class="archive-cell archive-year">2024</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Inquiry Form -->
+        <section id="inquiry" class="editorial-section">
+            <div class="inquiry-grid">
+                <div>
+                    <span class="section-num">03/</span>
+                    <h2 class="section-title" style="margin-top: 12px; margin-bottom: 24px;">Start a Conversation</h2>
+                    <p class="hero-statement" style="font-size: 1rem;">
+                        We accept a limited number of studio commissions per quarter to maintain uncompromised creative quality.
+                    </p>
+                </div>
+                <div>
+                    <form id="contact-form" onsubmit="event.preventDefault(); handleInquiry();">
+                        <div class="field-group">
+                            <label class="field-label" for="client-name">Your Name / Organization</label>
+                            <input class="field-input" type="text" id="client-name" required placeholder="E.g. Elena Rostova / Apex Capital">
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label" for="client-email">Email Address</label>
+                            <input class="field-input" type="email" id="client-email" required placeholder="name@domain.com">
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label" for="client-scope">Scope of Project</label>
+                            <input class="field-input" type="text" id="client-scope" required placeholder="Identity, Product Design, Custom Architecture">
+                        </div>
+                        <button type="submit" class="btn-submit" id="submit-btn">Submit Proposal</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div>
+                <div class="footer-brand">BigAgency.</div>
+                <p>© 2026 BigAgency Studio LLC. All rights reserved.</p>
+            </div>
+            <div>
+                <p>Designed with editorial discipline. Built with zero bloat.</p>
+            </div>
+        </footer>
+
+    </div>
 
     <script>
-        // Professional animation sequence using GSAP
-        window.addEventListener('load', () => {
-            const tl = gsap.timeline();
+        // Purposeful, immediate interaction without bloated framework overhead
+        function handleInquiry() {
+            const btn = document.getElementById('submit-btn');
+            const name = document.getElementById('client-name').value;
             
-            tl.to("#hero-title", { opacity: 1, y: 0, duration: 1, ease: "power2.out" })
-              .to("#hero-sub", { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }, "-=0.5");
+            btn.innerText = "Transmitting...";
+            btn.style.backgroundColor = "var(--accent-rust)";
 
-            gsap.from(".work-item", {
-                scrollTrigger: {
-                    trigger: ".section-work",
-                    start: "top 80%"
-                },
-                opacity: 0,
-                y: 50,
-                stagger: 0.2,
-                duration: 1
-            });
+            setTimeout(() => {
+                btn.innerText = "Proposal Received";
+                btn.style.backgroundColor = "var(--text-ink)";
+                alert("Thank you, " + name + ". Our team will review your inquiry within 24 hours.");
+            }, 600);
+        }
+
+        // Subtly track scroll position for non-intrusive header border adjustment
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.borderBottomColor = 'var(--accent-rust)';
+            } else {
+                header.style.borderBottomColor = 'var(--text-ink)';
+            }
         });
     </script>
 </body>
