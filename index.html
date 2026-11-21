@@ -3,78 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BigAgency | Strategic Design & Engineering</title>
+    <title>BigAgency | Strategic Design</title>
+    <!-- Importing GSAP for smooth, professional motion without external frameworks -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <style>
         :root {
             --bg: #ffffff;
-            --text: #1a1a1a;
+            --text: #111111;
             --muted: #666666;
             --accent: #b8860b;
-            --border: #e0e0e0;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; font-size: 16px; }
-
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
-        header { padding: 40px 0; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 700; font-size: 1.2rem; letter-spacing: -0.02em; }
-        nav a { text-decoration: none; color: var(--text); font-size: 0.9rem; margin-left: 30px; }
-
-        section { padding: 100px 0; border-top: 1px solid var(--border); }
-        .hero { padding: 80px 0; border: none; }
-        .hero h1 { font-size: 3.5rem; line-height: 1.1; font-weight: 500; margin-bottom: 30px; }
-        .hero p { font-size: 1.25rem; color: var(--muted); max-width: 600px; }
-
-        h2 { font-size: 2rem; font-weight: 500; margin-bottom: 40px; }
-        .content-body { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
-        p { margin-bottom: 20px; }
-
-        .btn { display: inline-block; padding: 14px 30px; background: var(--text); color: #fff; text-decoration: none; font-size: 0.9rem; cursor: pointer; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; overflow-x: hidden; }
         
-        footer { padding: 60px 0; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--border); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+        
+        header { padding: 40px 0; display: flex; justify-content: space-between; align-items: center; }
+        .nav-links a { margin-left: 30px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.9rem; }
 
+        .hero { min-height: 80vh; display: flex; flex-direction: column; justify-content: center; }
+        .hero h1 { font-size: 5rem; font-weight: 500; letter-spacing: -0.02em; line-height: 0.9; margin-bottom: 30px; opacity: 0; }
+        .hero p { font-size: 1.5rem; color: var(--muted); max-width: 600px; opacity: 0; }
+
+        .section-work { padding: 120px 0; }
+        .work-item { padding: 60px 0; border-top: 1px solid #e0e0e0; cursor: pointer; transition: padding 0.3s ease; }
+        .work-item:hover { padding-left: 20px; }
+        .work-item h3 { font-size: 2.5rem; font-weight: 500; }
+
+        footer { padding: 80px 0; text-align: center; color: var(--muted); font-size: 0.9rem; }
+        
         @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
             .container { padding: 0 20px; }
-            .hero h1 { font-size: 2.5rem; }
-            .content-body { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">BIGAGENCY</div>
-            <nav>
-                <a href="#work">Work</a>
-                <a href="#about">About</a>
-                <a href="mailto:contact@bigagency.com">Contact</a>
-            </nav>
-        </header>
 
+    <header class="container">
+        <div style="font-weight: 800;">BIGAGENCY</div>
+        <nav class="nav-links">
+            <a href="#">Work</a>
+            <a href="#">Process</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <main class="container">
         <section class="hero">
-            <h1>We design and engineer systems for ambitious brands.</h1>
-            <p>An independent consultancy focused on high-impact digital products and coherent visual identity.</p>
+            <h1 id="hero-title">Precision in every pixel.</h1>
+            <p id="hero-sub">We build robust digital infrastructure for brands that define the future.</p>
         </section>
 
-        <section id="work">
-            <h2>Selected Work</h2>
-            <div class="content-body">
-                <div>
-                    <p><strong>Brand Systems</strong></p>
-                    <p>Developing comprehensive visual languages that adapt across digital and physical touchpoints.</p>
-                </div>
-                <div>
-                    <p><strong>Product Engineering</strong></p>
-                    <p>Building high-performance interfaces that bridge the gap between complex business logic and user intent.</p>
-                </div>
+        <section class="section-work">
+            <div class="work-item">
+                <h3>System Architecture</h3>
+                <p>Enterprise-grade design systems that scale.</p>
             </div>
-            <a href="#" class="btn" style="margin-top: 40px;">View Case Studies</a>
+            <div class="work-item">
+                <h3>Digital Product</h3>
+                <p>Interfaces built for clarity and high conversion.</p>
+            </div>
         </section>
+    </main>
 
-        <footer>
-            <p>&copy; 2026 BigAgency. All rights reserved.</p>
-        </footer>
-    </div>
+    <footer>
+        &copy; 2026 BigAgency. All Rights Reserved.
+    </footer>
+
+    <script>
+        // Professional animation sequence using GSAP
+        window.addEventListener('load', () => {
+            const tl = gsap.timeline();
+            
+            tl.to("#hero-title", { opacity: 1, y: 0, duration: 1, ease: "power2.out" })
+              .to("#hero-sub", { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }, "-=0.5");
+
+            gsap.from(".work-item", {
+                scrollTrigger: {
+                    trigger: ".section-work",
+                    start: "top 80%"
+                },
+                opacity: 0,
+                y: 50,
+                stagger: 0.2,
+                duration: 1
+            });
+        });
+    </script>
 </body>
 </html>
