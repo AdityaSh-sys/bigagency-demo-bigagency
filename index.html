@@ -3,84 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BigAgency | Strategic Brand Engineering</title>
+    <title>BigAgency | Strategic Design & Engineering</title>
     <style>
         :root {
-            --primary: #0a0a0a;
-            --accent: #b8860b;
-            --neutral: #f4f4f4;
+            --bg: #ffffff;
             --text: #1a1a1a;
-            --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --muted: #666666;
+            --accent: #b8860b;
+            --border: #e0e0e0;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: var(--font); background: #fff; color: var(--text); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; font-size: 16px; }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
+        header { padding: 40px 0; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 700; font-size: 1.2rem; letter-spacing: -0.02em; }
+        nav a { text-decoration: none; color: var(--text); font-size: 0.9rem; margin-left: 30px; }
+
+        section { padding: 100px 0; border-top: 1px solid var(--border); }
+        .hero { padding: 80px 0; border: none; }
+        .hero h1 { font-size: 3.5rem; line-height: 1.1; font-weight: 500; margin-bottom: 30px; }
+        .hero p { font-size: 1.25rem; color: var(--muted); max-width: 600px; }
+
+        h2 { font-size: 2rem; font-weight: 500; margin-bottom: 40px; }
+        .content-body { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+        p { margin-bottom: 20px; }
+
+        .btn { display: inline-block; padding: 14px 30px; background: var(--text); color: #fff; text-decoration: none; font-size: 0.9rem; cursor: pointer; }
         
-        header { padding: 40px 60px; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 800; font-size: 1.2rem; letter-spacing: -0.5px; }
-        nav a { margin-left: 40px; text-decoration: none; color: var(--text); font-size: 0.9rem; transition: opacity 0.2s; }
-        nav a:hover { opacity: 0.6; }
+        footer { padding: 60px 0; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--border); }
 
-        main { padding: 100px 60px; max-width: 1100px; margin: 0 auto; }
-        .hero { margin-bottom: 160px; }
-        .hero h1 { font-size: 3.5rem; line-height: 1.1; font-weight: 500; margin-bottom: 24px; max-width: 800px; }
-        .hero p { font-size: 1.2rem; color: #555; max-width: 500px; }
-
-        section { margin-bottom: 120px; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; }
-        h2 { font-size: 1.8rem; margin-bottom: 24px; font-weight: 500; }
-        p { color: #555; margin-bottom: 16px; }
-        
-        .btn { display: inline-block; margin-top: 24px; padding: 12px 28px; border: 1px solid var(--primary); background: transparent; cursor: pointer; text-decoration: none; color: var(--primary); font-size: 0.9rem; transition: background 0.2s, color 0.2s; }
-        .btn:hover { background: var(--primary); color: #fff; }
-
-        footer { padding: 60px; border-top: 1px solid #e0e0e0; font-size: 0.8rem; color: #888; display: flex; justify-content: space-between; }
-
-        @media (max-width: 800px) {
-            header, main, footer { padding: 40px 30px; }
+        @media (max-width: 768px) {
+            .container { padding: 0 20px; }
             .hero h1 { font-size: 2.5rem; }
-            .grid { grid-template-columns: 1fr; gap: 60px; }
+            .content-body { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">BIGAGENCY</div>
-        <nav>
-            <a href="#">Work</a>
-            <a href="#">Approach</a>
-            <a href="#">Contact</a>
-        </nav>
-    </header>
+    <div class="container">
+        <header>
+            <div class="logo">BIGAGENCY</div>
+            <nav>
+                <a href="#work">Work</a>
+                <a href="#about">About</a>
+                <a href="mailto:contact@bigagency.com">Contact</a>
+            </nav>
+        </header>
 
-    <main>
         <section class="hero">
-            <h1>Strategic brand engineering for the next generation of industry leaders.</h1>
-            <p>An independent design consultancy building cohesive, lasting digital experiences.</p>
+            <h1>We design and engineer systems for ambitious brands.</h1>
+            <p>An independent consultancy focused on high-impact digital products and coherent visual identity.</p>
         </section>
 
-        <section class="grid">
-            <div>
-                <h2>Our Focus</h2>
-                <p>We believe in precision and purpose. Our work spans identity design, interface strategy, and systems engineering for ambitious global brands.</p>
+        <section id="work">
+            <h2>Selected Work</h2>
+            <div class="content-body">
+                <div>
+                    <p><strong>Brand Systems</strong></p>
+                    <p>Developing comprehensive visual languages that adapt across digital and physical touchpoints.</p>
+                </div>
+                <div>
+                    <p><strong>Product Engineering</strong></p>
+                    <p>Building high-performance interfaces that bridge the gap between complex business logic and user intent.</p>
+                </div>
             </div>
-            <div>
-                <h2>Partnership</h2>
-                <p>We work as an extension of your internal team. Together, we navigate complexity to build things that actually matter.</p>
-                <a href="#" class="btn" id="contact-btn">Get In Touch</a>
-            </div>
+            <a href="#" class="btn" style="margin-top: 40px;">View Case Studies</a>
         </section>
-    </main>
 
-    <footer>
-        <div>&copy; 2026 BigAgency</div>
-        <div>New York, NY</div>
-    </footer>
-
-    <script>
-        document.getElementById('contact-btn').addEventListener('click', (e) => {
-            console.log('Initiating partnership dialogue.');
-        });
-    </script>
+        <footer>
+            <p>&copy; 2026 BigAgency. All rights reserved.</p>
+        </footer>
+    </div>
 </body>
 </html>
