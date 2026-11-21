@@ -6,36 +6,40 @@
     <title>BigAgency | Strategic Brand Engineering</title>
     <style>
         :root {
-            --primary-color: #1a1a1a;
-            --accent-color: #d4a373;
-            --bg-color: #ffffff;
-            --text-color: #333333;
-            --font-main: 'Helvetica Neue', Arial, sans-serif;
+            --primary: #0a0a0a;
+            --accent: #b8860b;
+            --neutral: #f4f4f4;
+            --text: #1a1a1a;
+            --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: var(--font-main); background: var(--bg-color); color: var(--text-color); line-height: 1.6; }
+        body { font-family: var(--font); background: #fff; color: var(--text); line-height: 1.5; -webkit-font-smoothing: antialiased; }
         
-        header { padding: 40px 80px; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 700; font-size: 1.5rem; letter-spacing: -1px; }
-        nav a { margin-left: 30px; text-decoration: none; color: var(--text-color); font-size: 0.9rem; }
+        header { padding: 40px 60px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 800; font-size: 1.2rem; letter-spacing: -0.5px; }
+        nav a { margin-left: 40px; text-decoration: none; color: var(--text); font-size: 0.9rem; transition: opacity 0.2s; }
+        nav a:hover { opacity: 0.6; }
 
-        main { padding: 80px; max-width: 1200px; margin: 0 auto; }
-        .hero { margin-bottom: 120px; }
-        .hero h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 20px; font-weight: 500; }
-        .hero p { font-size: 1.25rem; color: #666; max-width: 600px; }
+        main { padding: 100px 60px; max-width: 1100px; margin: 0 auto; }
+        .hero { margin-bottom: 160px; }
+        .hero h1 { font-size: 3.5rem; line-height: 1.1; font-weight: 500; margin-bottom: 24px; max-width: 800px; }
+        .hero p { font-size: 1.2rem; color: #555; max-width: 500px; }
 
-        .section-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
-        h2 { font-size: 2rem; margin-bottom: 20px; font-weight: 500; }
+        section { margin-bottom: 120px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; }
+        h2 { font-size: 1.8rem; margin-bottom: 24px; font-weight: 500; }
+        p { color: #555; margin-bottom: 16px; }
         
-        footer { padding: 80px; border-top: 1px solid #eee; margin-top: 80px; text-align: center; font-size: 0.8rem; color: #999; }
-        
-        button { background: var(--primary-color); color: white; padding: 12px 24px; border: none; cursor: pointer; font-size: 0.9rem; }
-        
-        @media (max-width: 768px) {
-            header, main, footer { padding: 30px; }
+        .btn { display: inline-block; margin-top: 24px; padding: 12px 28px; border: 1px solid var(--primary); background: transparent; cursor: pointer; text-decoration: none; color: var(--primary); font-size: 0.9rem; transition: background 0.2s, color 0.2s; }
+        .btn:hover { background: var(--primary); color: #fff; }
+
+        footer { padding: 60px; border-top: 1px solid #e0e0e0; font-size: 0.8rem; color: #888; display: flex; justify-content: space-between; }
+
+        @media (max-width: 800px) {
+            header, main, footer { padding: 40px 30px; }
             .hero h1 { font-size: 2.5rem; }
-            .section-grid { grid-template-columns: 1fr; gap: 40px; }
+            .grid { grid-template-columns: 1fr; gap: 60px; }
         }
     </style>
 </head>
@@ -51,25 +55,32 @@
 
     <main>
         <section class="hero">
-            <h1>We build systems that shape perception and drive growth.</h1>
-            <p>Independent creative consultancy for ambitious companies. Based in New York.</p>
+            <h1>Strategic brand engineering for the next generation of industry leaders.</h1>
+            <p>An independent design consultancy building cohesive, lasting digital experiences.</p>
         </section>
 
-        <section class="section-grid">
+        <section class="grid">
             <div>
-                <h2>Services</h2>
-                <p>Brand Strategy, Visual Identity, Digital Product Design, Campaign Development.</p>
+                <h2>Our Focus</h2>
+                <p>We believe in precision and purpose. Our work spans identity design, interface strategy, and systems engineering for ambitious global brands.</p>
             </div>
             <div>
-                <h2>Selected Work</h2>
-                <p>See how we partner with global teams to solve complex business challenges.</p>
-                <button style="margin-top:20px;">Explore Projects</button>
+                <h2>Partnership</h2>
+                <p>We work as an extension of your internal team. Together, we navigate complexity to build things that actually matter.</p>
+                <a href="#" class="btn" id="contact-btn">Get In Touch</a>
             </div>
         </section>
     </main>
 
     <footer>
-        &copy; 2026 BigAgency. All rights reserved.
+        <div>&copy; 2026 BigAgency</div>
+        <div>New York, NY</div>
     </footer>
+
+    <script>
+        document.getElementById('contact-btn').addEventListener('click', (e) => {
+            console.log('Initiating partnership dialogue.');
+        });
+    </script>
 </body>
 </html>
